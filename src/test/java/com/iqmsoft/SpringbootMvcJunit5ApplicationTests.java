@@ -16,7 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(JUnitPlatform.class)
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(WelcomeController.class)
+@WebMvcTest({WelcomeController.class, HelloController.class})
 public class SpringbootMvcJunit5ApplicationTests {
 
     @Autowired
@@ -30,6 +30,11 @@ public class SpringbootMvcJunit5ApplicationTests {
     @Test
     void contextLoadsAgain() throws Exception {
         mockMvc.perform(get("/welcome")).andExpect(status().isOk());
+    }
+    
+    @Test
+    void contextLoadsAndAgain() throws Exception {
+        mockMvc.perform(get("/hello")).andExpect(status().isOk());
     }
     
 }

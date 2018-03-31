@@ -24,3 +24,12 @@ class WelcomeController {
         return "Greetings User";
     }
 }
+
+@RestController
+class HelloController {
+    @GetMapping("/hello")
+    public String getValue() {
+        return "hello";
+    }
+   
+}
